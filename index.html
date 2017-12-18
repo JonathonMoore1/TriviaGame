@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>Trivia Game</title>
+</head>
+
+<body>
+
+	<div class="container">
+		
+		<h1>Japan Trivia</h1>
+
+		<div class="start-screen">
+
+			<button id="startButton">Start</button>
+
+		</div>
+
+
+
+		<div class="game-screen">
+
+			<div id="countDown"></div>
+
+			<div id="question-1">
+				<p id="q1">
+					<br />
+					<input type="radio" name="guess">
+					<input type="radio" name="guess">
+					<input type="radio" name="guess">
+				</p>
+			</div>
+
+			<div id="question-2">
+				<p id="q2">
+					<br />
+					<input type="radio" name="guess">
+					<input type="radio" name="guess">
+					<input type="radio" name="guess">
+				</p>
+			</div>
+
+			<div id="question-3">
+				<p id="q3">
+					<br />
+					<input type="radio" name="guess">
+					<input type="radio" name="guess">
+					<input type="radio" name="guess">
+				</p>
+			</div>
+
+			<div id="question-4">
+				<p id="q4">
+					<br />
+					<input type="radio" name="guess">
+					<input type="radio" name="guess">
+					<input type="radio" name="guess">
+				</p>
+			</div>
+
+			<div id="question-5">
+				<p id="q5">
+					<br />
+					<input type="radio" name="guess">
+					<input type="radio" name="guess">
+					<input type="radio" name="guess">
+				</p>
+			</div>
+
+			<button id="done">Submit answers</button>
+
+		</div>
+
+		<!-- This div will be displayed once either the player pushes the 'DONE' button or the countdown reaches zero -->
+		<div class="results-screen">
+
+			<h1>Your scores:</h1>
+			
+			<p id="correct">Correct: </p>
+
+			<p id="incorrect">Incorrect: </p>
+
+			<p id="unanswered">Unanswered: </p>
+
+		</div>
+
+	</div>
+
+	<!-- jQuery link -->
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
