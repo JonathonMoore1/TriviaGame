@@ -7,19 +7,17 @@ body {
 .container {
 	background-image: url(../images/sayagata-400px.png);
 	background-size: cover;
-	margin: 50px 25% 0 25%;
+	margin: 50px 25% 50px 25%;
+	padding: 15px;
 	text-align: center;
 	width: 50%;
-	height: 550px;
+	height: auto;
+	min-height: 400px;
 }
 
 h1 {
 	font-size: 30px;
 }
-
-/* #start-screen{
-
-} */
 
 .game-screen {
 	display: none;
