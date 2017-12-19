@@ -3,17 +3,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Trivia Game</title>
+
+	<!-- Link to CSS reset -->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+	<!-- Link to CSS stylesheet -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
 </head>
 
 <body>
 
 	<div class="container">
 		
-		<h1>Japan Trivia</h1>
+		<h1 id="main-header">Japan Triviaです！</h1>
+
+		<br>
 
 		<div class="start-screen">
 
-			<button id="startButton">Start</button>
+			<p>Press start to test your knowledge!</p>
+
+			<br><br>
+
+			<button id="start-button">Start</button>
 
 		</div>
 
@@ -21,7 +35,7 @@
 
 		<div class="game-screen">
 
-			<div id="countDown"></div>
+			<div id="countdown"></div>
 
 			<div id="question-1">
 				<p id="q1">
@@ -32,6 +46,8 @@
 				</p>
 			</div>
 
+			<br>
+
 			<div id="question-2">
 				<p id="q2">
 					<br />
@@ -40,6 +56,8 @@
 					<input type="radio" name="guess">
 				</p>
 			</div>
+
+			<br>
 
 			<div id="question-3">
 				<p id="q3">
@@ -50,6 +68,8 @@
 				</p>
 			</div>
 
+			<br>
+
 			<div id="question-4">
 				<p id="q4">
 					<br />
@@ -58,6 +78,8 @@
 					<input type="radio" name="guess">
 				</p>
 			</div>
+
+			<br>
 
 			<div id="question-5">
 				<p id="q5">
@@ -68,7 +90,9 @@
 				</p>
 			</div>
 
-			<button id="done">Submit answers</button>
+			<br>
+
+			<button id="done">Done</button>
 
 		</div>
 
@@ -90,6 +114,11 @@
 	<!-- jQuery link -->
 	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
+
+	<!-- Javascript link -->
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+
+	
 </body>
 
 </html>

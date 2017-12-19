@@ -1,0 +1,30 @@
+body {
+	background-image: url(../images/pexels-photo-590478.jpeg);
+	background-size: cover;
+}
+
+
+.container {
+	background-image: url(../images/sayagata-400px.png);
+	background-size: cover;
+	margin: 50px 25% 0 25%;
+	text-align: center;
+	width: 50%;
+	height: 550px;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+/* #start-screen{
+
+} */
+
+.game-screen {
+	display: none;
+}
+
+.results-screen {
+	display: none;
+}
