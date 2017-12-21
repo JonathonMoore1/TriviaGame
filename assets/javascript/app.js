@@ -5,7 +5,7 @@
 
 var questions = [
 	{
-		question : "The core of Japan's capital, Tokyo, is comprised of 23 wards. Which of the following is NOT a Tokyo ward?",
+		question : "Tokyo is comprised of 23 wards. Which of the following is NOT a Tokyo ward?",
 		guesses : ["Shinjuku", "Edogawa", "Chiyoda"],
 		answer : "Yokohama"
 	},
@@ -15,17 +15,17 @@ var questions = [
 		answer : "Honshu"
 	},
 	{
-		question : "A major tourist destination known for its shrines, temples, and palaces, this city served as the Japanese capital from 794 A.D. until 1868.",
-		guesses : ["Kamakura", "Osaka", "Sendai"],
+		question : "A popular tourist destination, this city served as the Japanese capital from 794 A.D. until 1868.",
+		guesses : ["Kamakura", "Osaka", "Des Moines, Iowa"],
 		answer : "Kyoto"
 	},
 	{
-		question : "Founded by the Jesuits in the 16th century, this port city was the only location where the presence of foreigners was tolerated for over 400 years.",
+		question : "This city was founded by Jesuit missionaries in the 16th century and the only place where the presence of foreigners was tolerated for over 400 years.",
 		guesses : ["Shibuya", "Macao", "Kobe"],
 		answer : "Nagasaki"
 	},
 	{
-		question : "Once a separate nation known as the Ryukyu Kingdom, the southernmost of Japanese islands is home to a distinct culture and was the stage of the bloodiest battle in the Pacific War.",
+		question : "The southernmost of Japanese islands is home to the Ryukyu culture and was the stage of the bloodiest battle in the Pacific War.",
 		guesses : ["Hiroshima", "Australia", "Saipan"],
 		answer : "Okinawa"
 	}
@@ -39,7 +39,7 @@ var correct = 0;
 
 var incorrect = 0;
 
-var unanswered = 20;
+var unanswered = 5;
 
 //=========
 //Functions
@@ -59,6 +59,11 @@ function decrement() {
 
 function showResults() {
 	stopTimer();
+	/*if ($('input[name=guess]:checked').length > 0) {
+
+	}*/
+
+
 	$('#correct').append(correct);
 	$('#incorrect').append(incorrect);
 	$('#unanswered').append(unanswered);
@@ -70,6 +75,15 @@ function stopTimer() {
 	clearInterval(intervalId);
 };
 
+/*function scoreUp() {
+	correct++;
+	unanswered--;
+};
+
+function scoreDown() {
+	incorrect++;
+	unanswered--;
+}*/
 //======
 //Events
 //======
@@ -122,6 +136,10 @@ $('#start-button').on('click', function initializeGame() {
 
 $('#done').on('click', showResults);
 
+/*$('.answer').on('click', scoreUp);
+
+$('.guess').on('click', scoreDown);*/
+
 
 //=================
 //Initialize Script
@@ -129,5 +147,8 @@ $('#done').on('click', showResults);
 
 $(document).ready(function() {
 
+	$('#done').click(function(event) {
+		event.preventDefault();
+	})
 
 });
