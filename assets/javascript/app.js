@@ -31,6 +31,7 @@ var questions = [
 	}
 ];
 
+
 var number = 30;
 
 var intervalId;
@@ -41,9 +42,14 @@ var incorrect = 0;
 
 var unanswered = 5;
 
+var isChosen = false;
+
 //=========
 //Functions
 //=========
+
+
+//======================Timer Functions=========================
 
 function beginCountdown() {
 	intervalId = setInterval(decrement, 1000);
@@ -57,13 +63,25 @@ function decrement() {
 	};
 };
 
+function stopTimer() {
+	clearInterval(intervalId);
+};
+
+//==============================================================
+
+function calculateScore() {
+	if ($('.correct').prop('checked')) {
+		correct++;
+	} else if (($('.correct').prop('checked')) || ($('.radio-button').prop('checked')) || ($('.incorrect').prop('checked'))) {
+		unanswered--;
+	} else {
+		incorrect++;
+	};
+};
+
 function showResults() {
 	stopTimer();
-	/*if ($('input[name=guess]:checked').length > 0) {
-
-	}*/
-
-
+	calculateScore();
 	$('#correct').append(correct);
 	$('#incorrect').append(incorrect);
 	$('#unanswered').append(unanswered);
@@ -71,9 +89,17 @@ function showResults() {
 	$('.results-screen').css('display', 'initial');
 };
 
-function stopTimer() {
-	clearInterval(intervalId);
-};
+
+/*var forms = ['', '', '', '', '']
+function getRadios(forms) {
+	var radioForms = [];
+	for (var i = 0; i < forms.length; i++) {
+		radioForms.push(forms[i].innerHTML);
+	};
+	$('.radio-forms').text(radioForms.join(""));
+}
+
+getRadios($(".radio-forms").toArray().reverse());*/
 
 /*function scoreUp() {
 	correct++;
