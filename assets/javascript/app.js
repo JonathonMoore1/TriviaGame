@@ -44,128 +44,15 @@ var unanswered = 5;
 
 var isChosen = false;
 
-//=========
-//Functions
-//=========
-
-
-//======================Timer Functions=========================
-
-function beginCountdown() {
-	intervalId = setInterval(decrement, 1000);
-};
-
-function decrement() {
-	number--;
-	$('#countdown').html('<h2>' + 'The game will end in ' + number + ' seconds.' + '</h2>');
-	if (number === 0) {
-		showResults();
-	};
-};
-
-function stopTimer() {
-	clearInterval(intervalId);
-};
-
-//==============================================================
-
-function calculateScore() {
-	if ($('.correct').prop('checked')) {
-		correct++;
-	} else if (($('.correct').prop('checked')) || ($('.radio-button').prop('checked')) || ($('.incorrect').prop('checked'))) {
-		unanswered--;
-	} else {
-		incorrect++;
-	};
-};
-
-function showResults() {
-	stopTimer();
-	calculateScore();
-	$('#correct').append(correct);
-	$('#incorrect').append(incorrect);
-	$('#unanswered').append(unanswered);
-	$('.game-screen').css('display', 'none');
-	$('.results-screen').css('display', 'initial');
-};
-
-
-/*var forms = ['', '', '', '', '']
-function getRadios(forms) {
-	var radioForms = [];
-	for (var i = 0; i < forms.length; i++) {
-		radioForms.push(forms[i].innerHTML);
-	};
-	$('.radio-forms').text(radioForms.join(""));
-}
-
-getRadios($(".radio-forms").toArray().reverse());*/
-
-/*function scoreUp() {
+/*var addCorrect = function() {
 	correct++;
 	unanswered--;
 };
 
-function scoreDown() {
+var addIncorrect = function() {
 	incorrect++;
 	unanswered--;
-}*/
-//======
-//Events
-//======
-
-$('#start-button').on('click', function initializeGame() {
-
-	//Adding text to the first question and its answers
-	$('#q1-q').html(questions[0].question);
-	$('#q1-1').html(questions[0].answer);
-	$('#q1-2').html(questions[0].guesses[0]);
-	$('#q1-3').html(questions[0].guesses[1]);
-	$('#q1-4').html(questions[0].guesses[2]);
-
-	//And now the second question and its answers
-	$('#q2-q').html(questions[1].question);
-	$('#q2-1').html(questions[1].guesses[0]);
-	$('#q2-2').html(questions[1].answer);
-	$('#q2-3').html(questions[1].guesses[1]);
-	$('#q2-4').html(questions[1].guesses[2]);
-
-	//And so on...
-	$('#q3-q').html(questions[2].question);
-	$('#q3-1').html(questions[2].guesses[0]);
-	$('#q3-2').html(questions[2].guesses[1]);
-	$('#q3-3').html(questions[2].answer);
-	$('#q3-4').html(questions[2].guesses[2]);
-
-	//Question 4
-	$('#q4-q').html(questions[3].question);
-	$('#q4-1').html(questions[3].guesses[0]);
-	$('#q4-2').html(questions[3].guesses[1]);
-	$('#q4-3').html(questions[3].guesses[2]);
-	$('#q4-4').html(questions[3].answer);
-
-	//Question 5
-	$('#q5-q').html(questions[4].question);
-	$('#q5-1').html(questions[4].guesses[0]);
-	$('#q5-2').html(questions[4].guesses[1]);
-	$('#q5-3').html(questions[4].answer);
-	$('#q5-4').html(questions[4].guesses[2]);
-
-
-	//Changes the display to game screen
-	$('.start-screen').css('display', 'none');
-	$('.game-screen').css('display', 'initial');
-
-	beginCountdown();
-
-});
-
-$('#done').on('click', showResults);
-
-/*$('.answer').on('click', scoreUp);
-
-$('.guess').on('click', scoreDown);*/
-
+};*/
 
 //=================
 //Initialize Script
@@ -173,8 +60,156 @@ $('.guess').on('click', scoreDown);*/
 
 $(document).ready(function() {
 
+	//=================
+	//Scoring Functions
+	//=================
+
 	$('#done').click(function(event) {
 		event.preventDefault();
-	})
+		
+		showResults();
+		console.log(correct);
+		console.log(incorrect);
+		console.log(unanswered);
+	
+
+		function calculateScore() {
+
+			$('.question').each(function() {
+
+				if ($('#question-1').prop('checked') && $('.radio-button').prop('checked')) {
+					correct++;
+					unanswered--;
+				};
+
+				if ($('#question-1').prop('checked') && $('.radio-button').prop('checked')) {
+					incorrect++;
+					unanswered--;
+				};
+
+				if ($('#question-2').prop('checked') && $('.radio-button').prop('checked')) {
+					correct++;
+					unanswered--;
+				};
+
+				if ($('#question-2').prop('checked') && $('.radio-button').prop('checked')) {
+					incorrect++;
+					unanswered--;
+				};
+
+				if ($('#question-3').prop('checked') && $('.radio-button').prop('checked')) {
+					correct++;
+					unanswered--;
+				};
+
+				if ($('#question-3').prop('checked') && $('.radio-button').prop('checked')) {
+					incorrect++;
+					unanswered--;
+				};
+
+				if ($('#question-4').prop('checked') && $('.radio-button').prop('checked')) {
+					correct++;
+					unanswered--;
+				};
+
+				if ($('#question-4').prop('checked') && $('.radio-button').prop('checked')) {
+					incorrect++;
+					unanswered--;
+				};
+
+				if ($('#question-5').prop('checked') && $('.radio-button').prop('checked')) {
+					correct++;
+					unanswered--;
+				};
+
+				if ($('#question-5').prop('checked') && $('.radio-button').prop('checked')) {
+					incorrect++;
+					unanswered--;
+				};
+
+			});
+		};
+
+		function showResults() {
+			stopTimer();
+			calculateScore();
+			$('#correct').append(correct);
+			$('#incorrect').append(incorrect);
+			$('#unanswered').append(unanswered);
+			$('.game-screen').css('display', 'none');
+			$('.results-screen').css('display', 'initial');
+		};
+	});
+
+	//==============
+	//Timer Function
+	//==============
+
+	function beginCountdown() {
+		intervalId = setInterval(decrement, 1000);
+	};
+
+	function decrement() {
+		number--;
+		$('#countdown').html('<h2>' + 'The game will end in ' + number + ' seconds.' + '</h2>');
+		if (number === 0) {
+			showResults();
+		};
+	};
+
+	function stopTimer() {
+		clearInterval(intervalId);
+	};
+
+
+	//==========================
+	//Functions for Start Screen
+	//==========================
+
+	$('#start-button').on('click', function initializeGame() {
+
+		//Adding text to the first question and its answers
+		$('#q1-q').html(questions[0].question);
+		$('#q1-1').html(questions[0].answer);
+		$('#q1-2').html(questions[0].guesses[0]);
+		$('#q1-3').html(questions[0].guesses[1]);
+		$('#q1-4').html(questions[0].guesses[2]);
+
+		//And now the second question and its answers
+		$('#q2-q').html(questions[1].question);
+		$('#q2-1').html(questions[1].guesses[0]);
+		$('#q2-2').html(questions[1].answer);
+		$('#q2-3').html(questions[1].guesses[1]);
+		$('#q2-4').html(questions[1].guesses[2]);
+
+		//And so on...
+		$('#q3-q').html(questions[2].question);
+		$('#q3-1').html(questions[2].guesses[0]);
+		$('#q3-2').html(questions[2].guesses[1]);
+		$('#q3-3').html(questions[2].answer);
+		$('#q3-4').html(questions[2].guesses[2]);
+
+		//Question 4
+		$('#q4-q').html(questions[3].question);
+		$('#q4-1').html(questions[3].guesses[0]);
+		$('#q4-2').html(questions[3].guesses[1]);
+		$('#q4-3').html(questions[3].guesses[2]);
+		$('#q4-4').html(questions[3].answer);
+
+		//Question 5
+		$('#q5-q').html(questions[4].question);
+		$('#q5-1').html(questions[4].guesses[0]);
+		$('#q5-2').html(questions[4].guesses[1]);
+		$('#q5-3').html(questions[4].answer);
+		$('#q5-4').html(questions[4].guesses[2]);
+
+
+		//Changes the display to game screen
+		$('.start-screen').css('display', 'none');
+		$('.game-screen').css('display', 'initial');
+
+		beginCountdown();
+
+	});
 
 });
