@@ -64,6 +64,25 @@ $(document).ready(function() {
 	//Scoring Functions
 	//=================
 
+	function check() {
+    	document.getElementById("radio-button").checked = true;
+	};
+
+	function uncheck() {
+	    document.getElementById("radio-button").checked = false;
+	};
+
+
+	var scoreUp = function() {
+		correct++;
+		unanswered--;
+	};
+
+	var scoreDown = function() {
+		incorrect++;
+		unanswered--;
+	};
+
 	$('#done').click(function(event) {
 		event.preventDefault();
 		
@@ -71,76 +90,61 @@ $(document).ready(function() {
 		console.log(correct);
 		console.log(incorrect);
 		console.log(unanswered);
-	
-
-		function calculateScore() {
-
-			$('.question').each(function() {
-
-				if ($('#question-1').prop('checked') && $('.radio-button').prop('checked')) {
-					correct++;
-					unanswered--;
-				};
-
-				if ($('#question-1').prop('checked') && $('.radio-button').prop('checked')) {
-					incorrect++;
-					unanswered--;
-				};
-
-				if ($('#question-2').prop('checked') && $('.radio-button').prop('checked')) {
-					correct++;
-					unanswered--;
-				};
-
-				if ($('#question-2').prop('checked') && $('.radio-button').prop('checked')) {
-					incorrect++;
-					unanswered--;
-				};
-
-				if ($('#question-3').prop('checked') && $('.radio-button').prop('checked')) {
-					correct++;
-					unanswered--;
-				};
-
-				if ($('#question-3').prop('checked') && $('.radio-button').prop('checked')) {
-					incorrect++;
-					unanswered--;
-				};
-
-				if ($('#question-4').prop('checked') && $('.radio-button').prop('checked')) {
-					correct++;
-					unanswered--;
-				};
-
-				if ($('#question-4').prop('checked') && $('.radio-button').prop('checked')) {
-					incorrect++;
-					unanswered--;
-				};
-
-				if ($('#question-5').prop('checked') && $('.radio-button').prop('checked')) {
-					correct++;
-					unanswered--;
-				};
-
-				if ($('#question-5').prop('checked') && $('.radio-button').prop('checked')) {
-					incorrect++;
-					unanswered--;
-				};
-
-			});
-		};
-
-		function showResults() {
-			stopTimer();
-			calculateScore();
-			$('#correct').append(correct);
-			$('#incorrect').append(incorrect);
-			$('#unanswered').append(unanswered);
-			$('.game-screen').css('display', 'none');
-			$('.results-screen').css('display', 'initial');
-		};
+		
 	});
 
+	function calculateScore() {
+		$('#question-1').each(function() {
+			if ($('#correct').prop('checked')) {
+				scoreUp();
+			};
+			if ($('#incorrect').prop('checked')) {
+				scoreDown();
+			};
+		});
+		$('#question-2').each(function() {
+			if ($('#correct').prop('checked')) {
+				scoreUp();
+			};
+			if ($('#incorrect').prop('checked')) {
+				scoreDown();
+			};
+		});
+		$('#question-3').each(function() {
+			if ($('#correct').prop('checked')) {
+				scoreUp();
+			};
+			if ($('#incorrect').prop('checked')) {
+				scoreDown();
+			};
+		});
+		$('#question-4').each(function() {
+			if ($('#correct').prop('checked')) {
+				scoreUp();
+			};
+			if ($('#incorrect').prop('checked')) {
+				scoreDown();
+			};
+		});
+		$('#question-5').each(function() {
+			if ($('#correct').prop('checked')) {
+				scoreUp();
+			};
+			if ($('#incorrect').prop('checked')) {
+				scoreDown();
+			};
+		});
+	};
+
+	function showResults() {
+		stopTimer();
+		calculateScore();
+		$('#correct').append(correct);
+		$('#incorrect').append(incorrect);
+		$('#unanswered').append(unanswered);
+		$('.game-screen').css('display', 'none');
+		$('.results-screen').css('display', 'initial');
+	};
 	//==============
 	//Timer Function
 	//==============
